@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Flag Project</title>
+    <style>
+      /* Write your CSS Code here */
+      .India-flag {
+        height: 600px;
+        width: 900px;
+        text-align: center;
+        
+        /* to position the #06038D div to centre of flag */
+        /* position: relative; */
+      }
+      /* 3 colours -> 3 different divs
+         each colour occupies 1/3 rd height of whole flag's height
+         ie 200px
+      */
+      .kesari{
+        height: 200px;   
+        width: 100%;
+        background-color: #FF671F;
+      }
+      .middle{
+        height: 200px;
+        width: 100%;
+        background-color: #FFFFFF;
+        position: relative;
+      }
+      .green{
+        height: 200px;
+        width: 100%;
+        background-color: #046A38;
+      }
+
+      .ashoka-chakra{
+        height: 160px;
+        width: 160px;
+        /* width is 17.78% of white div*/
+        border-radius: 50%;
+        /* margin: auto; -> works when it is static position and not absolute */
+        
+        /* positioning */
+        position: absolute;
+        border: 12.5px solid #06038D;
+
+        /*200(div h) - 160(chakra h) = 20
+          20 - 12.5(border) = 7.5*/
+        top: 7.5px;  
+        /*radius of chakra div -> 80
+          80 + 12.5(left border) = 92.5
+          (left half width)450 - 92.5 = 357.5*/
+        left: 357.5px;  
+        
+      }
+      #core{
+        height: 32px;
+        width: 32px;
+        background-color: #06038D;
+        border-radius: 50%;
+
+        /* positioning */
+        position: absolute;
+        /* 64(extra ht need to add to position) = 80(upper half) - 16(radius of mid circle) */
+        top: 64px;
+        right: 64px;
+      }
+      
+      /* chakra ki dandiyan aur bindi */
+      /*dandi jo chakra ke bich ka aur border ka jodti he -> rod 
+        rod ki max width-> 6
+        half -> 3
+        80(half width of chakra div) - 3(half width of dandi) = 77*/
+      .rod{
+        position: absolute;
+        left: 77px;
+      }
+      .upper-long {
+        /* 48px -> uski ht ban jati he */
+        border-bottom: 48px solid #06038D;
+
+        /* 3 -> one half wd of dandi
+          ye left aur right border banata he*/
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+
+        /* kyuki min-width:0 -> isliye triangular shape banana he(end me blue part ki 0 widht) 
+          -> isliye extra width:0  */
+        width: 0;  
+        
+      }
+      .upper-short {
+        /* chotta part 
+        -> max-width: 6,
+           min-width: 2
+
+           trapezoidal shape banana he, trianglular nai
+           isme transparent(non-blue) wala part -> max: 2 width ka dono side se -> total=4(6-2)
+         */
+        /* 16 -> ht banata he, upar border khichta he -> isliye upar ka border-top ka max rehta he*/
+        border-top: 16px solid #06038D;
+        
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+        
+        /* kyuki min-width:2 -> trapezoidal shape banana he(end me blue part ki 2 width)
+           -> isliye extra width:2  */
+        width: 2px;
+        
+      }
+      #empty{
+        /* 32 mid gole ka diameter he */
+        height: 32px;
+      }
+      .lower-long {
+        border-top: 48px solid #06038D;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        /* height: 15px; */
+        width: 0;
+        
+      }
+      .lower-short {
+        border-bottom: 16px solid #06038D;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+        
+        width: 2px;
+        
+      }
+
+      /* consequetive dandi ke bich ka angle = 15 */
+      #rod1{
+        transform: rotate(0deg);
+      }
+      #rod2{
+        transform: rotate(15deg);
+      }
+      #rod3{
+        transform: rotate(30deg);
+      }
+      #rod4{
+        transform: rotate(45deg);
+      }
+      #rod5{
+        transform: rotate(60deg);
+      }
+      #rod6{
+        transform: rotate(75deg);
+      }
+      #rod7{
+        transform: rotate(90deg);
+      }
+      #rod8{
+        transform: rotate(105deg);
+      }
+      #rod9{
+        transform: rotate(120deg);
+      }
+      #rod10{
+        transform: rotate(135deg);
+      }
+      #rod11{
+        transform: rotate(150deg);
+      }
+      #rod12{
+        transform: rotate(165deg);
+      }
+      #rod13{
+        transform: rotate(180deg);
+      }
+      
+      /* do dandi ke bich ka gola */
+      .bindu-rod{
+        position: absolute;
+        /* bindi radius = 3.5 
+          80(radius of chakra) - 3.5(radius of bindi)*/
+        right: 76.5px;
+
+        /* aadhi bindi chakra ke border ke andar ghusane ke liye */
+        top: -3.5px;
+      }
+      .bindu{
+        /* bindi radius = 3.5  */
+        height: 7px;
+        width: 7px;
+        background-color: #06038D;
+        border-radius: 50%;
+      }
+      .space{
+        /* 160(diameter of chakra) - 3.5(radius of upper bindi) + 3.5(radius of lower bindi) */
+        height: 153px;
+      }
+
+      /* consequetive bindi ke bich ka angle = 15*/
+      #bindu1{
+        transform: rotate(7.5deg);
+      }
+      #bindu2{
+        transform: rotate(22.5deg);
+      }
+      #bindu3{
+        transform: rotate(37.5deg);
+      }
+      #bindu4{
+        transform: rotate(52.5deg);
+      }
+      #bindu5{
+        transform: rotate(67.5deg);
+      }
+      #bindu6{
+        transform: rotate(82.5deg);
+      }
+      #bindu7{
+        transform: rotate(97.50deg);
+      }
+      #bindu8{
+        transform: rotate(112.50deg);
+      }
+      #bindu9{
+        transform: rotate(127.50deg);
+      }
+      #bindu10{
+        transform: rotate(142.50deg);
+      }
+      #bindu11{
+        transform: rotate(157.50deg);
+      }
+      #bindu12{
+        transform: rotate(172.50deg);
+      }
+      #bindu13{
+        transform: rotate(187.50deg);
+      }
+
+      /* dandi ka trapezoid(mota part, mid gole ke pass wala part) samajhne ke liye*/
+      .uwala {
+        /* flag se alag karne ke liye */
+        margin-top: 100px;
+        border-bottom: 480px solid #06038D;
+        border-left: 30px solid gray;  
+        border-right: 30px solid grey;
+        /* height: 15px; */
+        width: 0;
+        
+      }
+      .lwala {
+        border-top: 160px solid #06038D;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        
+        width: 20px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      pura flag -> 1 div
+      andar ke 3 colours(orange,white,green) -> 3 diff. div
+      chakra ka  -> 1 main div
+      chakra ka border -> chakra ke div se hi ban gaya
+      chakra ke components -> dandi, dandi ke bich ki choti bindi -> 1 1 diff. div
+      dandi ka patla lamba part -> 1 div
+      dandi ka mota chhota part -> 1 div-->
+
+    <div class="India-flag">
+      <div class="kesari"></div>
+      <div class="middle">
+        <div  class="ashoka-chakra">
+          <div id="core"></div>
+
+          <div class="rod" id="rod1">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod2">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod3">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod4">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod5">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod6">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod7">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod8">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod9">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod10">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod11">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod12">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+          <div class="rod" id="rod13">
+            <div class="upper-long"></div>
+            <div class="upper-short"></div>
+            <div class id="empty"></div>
+            <div class="lower-short"></div>
+            <div class="lower-long"></div>
+          </div>
+
+          <div class="bindu-rod" id="bindu1">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu2">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu3">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu4">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu5">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu6">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu7">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu8">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu9">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu10">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu11">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+          <div class="bindu-rod" id="bindu12">
+            <div class="bindu"></div>
+            <div class="space"></div>
+            <div class="bindu"></div>
+          </div>
+        </div>
+      </div>
+      <div class="green"></div>
+
+       <!-- dandi ka trapezoid(mota part, mid gole ke pass wala part) samajhne ke liye -->
+      <div class="uwala"></div>
+      <div class="lwala"></div>
+  </body>
+</html>
